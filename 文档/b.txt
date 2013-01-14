@@ -1,0 +1,24 @@
+phoneyoyo
+
+Phone悠悠
+
+1.资讯  
+	文章
+	   ID(_id)
+	   分类_id()
+	   标题(title)
+	   描述(desc)
+	   关键字(keyword)
+	   缩略图(thumbimg)
+	   作者(author)
+	   发表时间(createtime)
+	   内容(content)
+	   阅读数(readcount)
+	   标签(tags)
+	类别
+	    
+	
+	评论使用多说系统
+2.APP
+	
+3.壁纸
