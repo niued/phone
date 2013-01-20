@@ -1,0 +1,23 @@
+
+	/*box*/
+	.box{ width:200px; height:330px; float:left; margin:10px; background:#fff; position:relative; font-size:12px; padding:10px;box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+		-moz-transition: all 400ms linear 0s;}
+	.box:hover{box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);}
+	.box:hover img{opacity:0.5;}
+		.box dd{}
+		.box dt{ color:#666; line-height:30px;}
+		.box .bigbtn{-moz-transition: all 200ms linear 0s;background:url("/images/bigger.png") no-repeat center rgb(0,0,0); width:40px; height:40px; position:absolute; 
+		right:0px; top:0px; opacity:0; border-radius:0 0 0 10px;}
+		.box:hover .bigbtn{ background:url("/images/bigger.png") no-repeat center rgb(0,0,0); width:40px; height:40px; position:absolute; 
+		right:0px; top:0px; opacity:1; border-radius:0 0 0 10px;}
+		.box .addimg{ line-height:50px; margin-left:30px; margin-top:100px; }
+		.box .addimg a{color: #e50;}
+		.box .addimg a:hover{ color:#f60;}
+		.box .addicon{ float:left;
+					font-size: 50px;font-weight: 
+					bold;text-shadow: 3px 3px 2px #666666; font-family:arial;
+					}
+		.box .addtxt{float:left; margin-left:5px;
+					font-size: 22px;font-weight: 
+					bold;text-shadow: 1px 1px 2px #666666; }
+		

@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>悠哉前端开发</title>
+    <link href="/css/base.css" rel="stylesheet" type="text/css" />
+	<link href="/css/global.css" rel="stylesheet" type="text/css" />
+    <link href="/css/admin.css" rel="stylesheet" type="text/css" />
+    <!–[if lt IE9]> 
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]–>
+</head>
+<body>
+	<%- partial('module/nav',{currNav:5}) %>
+	
+	<div class="grid fn-clear admin-con">
+		
+		<aside class="fn-left">
+			<%- partial('module/adminnav',{adminNav:4}) %>
+		</aside>
+		
+		<div class="fn-right admin-main">
+			<form method="post" action="/admin/article/op">
+				<div class="opform">
+					<div class="upimg">
+						<img src="<%= article.thumbimg?article.thumbimg:"" %>" id="J_thumbUrl" />
+						<iframe width="100" height="30" frameborder="no" border="0" style="margin-top:10px;" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" src="/admin/upload/upload">
+						</iframe>
+						
+					</div>
+				
+					<input type="hidden" name="id" value="<%= type=="add"?"":article._id %>"   />
+					<dl class="fn-clear">
+						<dt>文章标题：</dt>
+						<dd><input type="text" class="txt" name="title" value="<%= article.title?article.title:"" %>" /></dd>
+					</dl>
+                    <dl class="fn-clear">
+						<dt>所属模块：</dt>
+                        <%for(var i =0;i<config.navslist.length;i++){ %>
+						<dd><input type="radio" class="checkbox" name="nav" value="<%= config.navslist[i] %>" <% if(config.navslist[i]==article.nav){%> checked="checked" <%}%> /><label><%= config.navs[config.navslist[i]] %></label></dd>
+						<%} %>
+				    </dl>
+
+                    <dl class="fn-clear">
+                        <dt>所属分类：</dt>
+                        <%for(var key in kindsDic){ %>
+                        <dd><input type="radio" class="checkbox" name="kid" value="<%= key %>" <% if(key==article.kind_id){%> checked="checked" <%}%>  /><label><%= kindsDic[key].name %></label></dd>  
+                        <%} %>
+                    </dl>
+
+                    <dl class="fn-clear">
+						<dt>文章描述：</dt>
+						<dd><input type="text" class="txt" name="desc" value="<%= article.desc?article.desc:"" %>" /></dd>
+					</dl>
+					<dl class="fn-clear">
+						<dt>文章作者：</dt>
+						<dd><input type="text" class="txt" name="author" value="<%= article.author?article.author:"" %>" /></dd>
+					</dl>
+                    <dl class="fn-clear">
+						<dt>缩略图：</dt>
+						<dd><input type="text" id="J_thumbImg" class="txt" name="thumbimg" value="<%= article.thumbimg?article.thumbimg:"" %>" /></dd>
+					</dl>
+                    <dl class="fn-clear">
+						<dt>是否置顶：</dt>
+                        <dd><input type="checkbox" name="top" value="1" <% if(article.top){ %>checked="checked"<%} %> /></dd>
+					</dl>
+                    <dl class="fn-clear">
+						<dt>文章内容：</dt>
+						<dd><textarea class="txt txtarea" name="content"><%- common.replaceAll("asdfa","&","&amp;") %></textarea></dd>
+					</dl>
+                    
+
+                    
+                    
+					<dl class="fn-clear">
+						<dt></dt>
+						<dd><input type="submit" class="btn" value="保存" /></dd>
+					</dl>
+				</div>
+			</form>
+			
+		</div>
+		
+		
+	</div>
+	<script src="http://r.uzaicdn.com/static/base/jquery/jquery1.8.js" type="text/javascript"></script>
+	<script type="text/javascript" src="/js/kindeditor/kindeditor-all-min.js"></script>
+	<script type="text/javascript" src="/js/kindeditor/plugins/code/prettify.js"></script>
+	<link href="/js/kindeditor/plugins/code/prettify.css" rel="stylesheet" type="text/css" />
+	
+	<script type="text/javascript">
+		function changeImg(imgurl){
+			$("#J_thumbUrl").attr("src",imgurl);
+			$("#J_thumbImg").val(imgurl);
+		}
+		$(function(){
+			var editor;
+			KindEditor.ready(function(K) {
+				editor = K.create('.txtarea', {
+					allowFileManager : false,
+					uploadJson : '/admin/upload',
+					filterMode:true
+				});
+				prettyPrint();
+			});
+		});
+	</script>
+</body>
+</html>

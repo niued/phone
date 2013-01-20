@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>悠哉前端开发</title>
+    <link href="/css/base.css" rel="stylesheet" type="text/css" />
+	<link href="/css/global.css" rel="stylesheet" type="text/css" />
+    <link href="/css/admin.css" rel="stylesheet" type="text/css" />
+    <!–[if lt IE9]> 
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]–>
+</head>
+<body>
+	<%- partial('module/nav',{currNav:5}) %>
+	<div class="grid fn-clear admin-con">
+		<aside class="fn-left">
+			<%- partial('module/adminnav',{adminNav:1}) %>
+		</aside>
+		<div class="fn-right admin-main">
+			<table class="table">
+				<thead>
+					<tr>
+						<th style="width:15%;">编号</th>
+						<th style="width:15%;">名称</th>
+						<th style="width:30%;">描述</th>
+						<th style="width:20%;">所属模块</th>
+                        <th style="width:5%;">顺序</th>
+						<th style="width:15%;">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% for(var i=0;i<kinds.length;i++){%>
+					<tr>
+						<td><%= kinds[i]._id %></td>
+						<td><%= kinds[i].name %></td>
+						<td><%= kinds[i].desc %></td>
+						<td><%= config.navs[kinds[i].nav] %></td>
+                        <td><%= kinds[i].order %></td>
+						<td class="tc">
+                            <a href="/admin/kind/edit-<%= kinds[i]._id %>">编辑</a>
+                        </td>
+					</tr>
+					<%}%>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

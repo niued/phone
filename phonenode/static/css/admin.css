@@ -1,0 +1,34 @@
+.admin-con{margin-top:15px;}
+.aside-nav{ width:220px; padding:10px 0px; background:#fff; border-radius:5px; border:1px solid #ccc; box-shadow:0 0 5px #666;}
+.aside-nav li{ height:32px; padding:0  10px; border-bottom:1px solid #e5e5e5; line-height:32px; font-size:14px;}
+.aside-nav li:hover{background:#efefef;}
+.aside-nav li.active{background:#0088cc;}
+.aside-nav li a{ text-indent:1em; display:block; font-size:12px;}
+.aside-nav li.active a{color:#fff;}
+	
+.admin-main{width:940px; padding:10px; background:#fff; box-shadow:0 0 5px #666;}
+	
+.table{width:100%; border-collapse: collapse;border-spacing: 0; max-width: 100%;}
+.table tr{ line-height:20px;}
+.table tr:hover{background:#efefef;}
+.table th,.table td{border:1px solid #ccc;  padding:8px;}
+.table th{font-size:14px; text-align:center; font-weight:bold; background:#efefef;}
+.table .tc{ text-align:center;}
+	
+.page-bar{margin:10px 0;}
+.pagination{ float:right;}
+.pagination ul{border-radius:4px; display:inline-block;}
+.pagination ul > li{display:inline; float:left; margin:0 5px; line-heihgt:20px;}
+.pagination ul > li > a{ float:left; border:1px solid #ddd;   line-heihgt:20px; padding:4px 10px;}
+
+.opform{position: relative;}
+.opform .upimg{ position: absolute; left:400px; top:20px;  }
+.opform .upimg img{ width: 450px; height: 200px; border: 1px solid #efefef;}
+.opform dl{ padding:5px;}
+.opform dt{ float:left; min-height:20px; display:inline; line-height:24px; padding:5px 0; width:100px; text-align:right;}
+.opform dd{ float:left; diplay:inline; margin-right:10px;  line-height:24px; padding:5px;}
+.opform .txt{ border:1px solid #ccc; line-height:24px; min-height:24px; width:200px; }
+.opform .checkbox{ margin-right:5px; vertical-align:middle;}
+.opform .txtarea{ width:750px; height:450px;}
+.opform .btn{background: none repeat scroll 0 0 rgba(0, 0, 0, 0.1);border-radius: 50px 50px 50px 50px;box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+	color:#fff;;display: block;font-size: 14px;padding: 3px 25px;margin: 0 0 0 0; background:#f60;}

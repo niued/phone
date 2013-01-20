@@ -1,0 +1,11 @@
+html{background:url(/images/bg4.png) repeat;}
+    .grid{ width:1200px; margin:0 auto;}
+    /*nav*/   
+	.navbar{ height:40px; background:url(/images/bg.png) repeat-x;border-color: #252525; box-shadow:0 3px 5px #333;}
+	.nav>li{ float:left; line-height:40px; height:40px; }
+	.nav>li>a{ dispay:block; line-height:20px; padding:0px 25px; font-size:16px; text-transform: uppercase; color:#ddd; text-decoration:none;}
+	.nav>li>a:hover{ color:#4ECD68; }
+	.nav>li.active>a{color:#4ECD68;}
+	.navbar .brand{ -moz-transition: all 0.2s linear 0s;color: #000000;float: right; font-weight: bold;margin-left: 20px; padding:0; dispay:block; padding:10px 15px; line-height:20px; font-size:20px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.125);}
+    .navbar .brand:hover {text-decoration: none;text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.4); color:#fff;}

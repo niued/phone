@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>悠哉前端开发</title>
+    <link href="/css/base.css" rel="stylesheet" type="text/css" />
+	<link href="/css/global.css" rel="stylesheet" type="text/css" />
+    <link href="/css/admin.css" rel="stylesheet" type="text/css" />
+    <!–[if lt IE9]> 
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]–>
+</head>
+<body>
+	<%- partial('module/nav',{currNav:5}) %>
+	
+	<div class="grid fn-clear admin-con">
+		
+		<aside class="fn-left">
+			<%- partial('module/adminnav',{adminNav:2}) %>
+		</aside>
+		
+		<div class="fn-right admin-main">
+			<form method="post" action="/admin/kind/op">
+				<div class="opform">
+					<input type="hidden" name="id" value="<%= type=="add"?"":kind._id %>"   />
+					<dl class="fn-clear">
+						<dt>分类名称：</dt>
+						<dd><input type="text" class="txt" name="name" value="<%= kind.name?kind.name:"" %>" /></dd>
+					</dl>
+					<dl class="fn-clear">
+						<dt>分类描述：</dt>
+						<dd><input type="text" class="txt" name="desc" value="<%= kind.desc?kind.desc:"" %>" /></dd>
+					</dl>
+					<dl class="fn-clear">
+						<dt>所属模块：</dt>
+                        <%for(var i =0;i<config.navslist.length;i++){ %>
+						<dd><input type="radio" class="checkbox" name="nav" value="<%= config.navslist[i] %>" <% if(config.navslist[i]==kind.nav){%> checked="checked" <%}%> /><label><%= config.navs[config.navslist[i]] %></label></dd>
+						<%} %>
+				    </dl>
+					<dl class="fn-clear">
+						<dt>分类序号：</dt>
+						<dd><input type="text" class="txt" name="order" value="<%= kind.order?kind.order:"" %>" /></dd>
+					</dl>
+					<dl class="fn-clear">
+						<dt></dt>
+						<dd><input type="submit" class="btn" value="保存" /></dd>
+					</dl>
+				</div>
+			</form>
+			
+		</div>
+		
+		
+	</div>
+</body>
+</html>
