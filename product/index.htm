@@ -1,0 +1,370 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title></title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="http://www.niued.com/base.css" />
+	<style>
+	body{ background:url(./images/bg.png);}
+	.grid990{ width:990px; margin:0 auto;}
+	.topbar{ height:30px; background:-moz-linear-gradient(#FFFFFF, #F7F6F5) no-repeat;border-bottom:1px solid #E0DEDE; box-shadow:0 -1px 0 #FEFCFC inset, 0 0 4px rgba(0, 0, 0, 0.15);}
+	.topbar li{ float:left;}
+	.topbar .mobile,.topbar .weibo,.topbar .weixin{ background:url(./images/icon.png) no-repeat; color:#666; line-height:30px; display:inline-block;}
+	.topbar .mobile{ background-position: 1px 1px; padding:0 0 0 20px;}
+	.topbar .weibo{ background-position: -2px -24px; padding:0 0 0 20px; margin-right:15px;}
+	.topbar .weixin{ background-position: 1px -1943px; padding:0 0 0 20px;}
+
+	.header{ height:72px; background:#fff;}
+	.header .logo{ height:72px; width:260px; background:url(./images/logo.png) 0 0px no-repeat;}
+	.header .logo a{ display:block; width:100%; height:100%; text-indent:-9999px;}
+	.header .searchform{ margin:12px  0 0 36px; padding:3px; border:3px solid #f60; border-radius:3px;}
+	.header .sval{ width:400px; height:22px; line-height:22px; border:none; font-size:14px;}
+	.header .sbtn{ width:20px; height:22px; display:block; border:none; background:url(./images/search.png) right center no-repeat; }
+	
+	.nav{background:-moz-linear-gradient(#63ca00, #339a00) no-repeat; height:32px; padding-top:8px;}
+	.nav .main-ul{height:32px; }
+	.nav .main-ul li{ padding:0 20px; margin-right:15px; height:32px;  float:left; display:inline; }
+	.nav .main-ul li a{ display:block;line-height:32px; font-size:16px;  font-weight:bold; color:#fff;} 
+	.nav .main-ul li a:hover{ text-decoration:none;} 
+	.nav .main-ul li.cur{ background:#fff; border-radius:3px 3px 0 0 ;}
+	.nav .main-ul li.cur a{ color:#390;}
+	
+	.snav{ height:30px; background:#fff;}
+	.snav dt{font-size:14px; color:#333; float:left; display:inline; padding:0 5px; line-height:30px; font-weight:bold; margin-left:10px;}
+	.snav dd{font-size:12px; color:#666; float:left; display:inline; padding:0 5px; line-height:30px; }
+	
+	.main-box{ margin-top:10px; padding:10px; background:#fff;}
+	.main-box .slider-box{ width:735px; position:relative;}
+	.main-box .slides_container{width:720px; height:270px; }
+	.main-box .slider-box .item{ position:absolute; left:0px; top:0px; width:720px; height:270px;}
+	.main-box .slider-box .item img{ width:720px; height:270px;}
+	.main-box .slider-box .item .title{position:absolute; bottom:0px; height:40px; line-height:40px; font-size:16px; color:#fff; background:#666; opacity:0.7; width:720px; text-indent:1em;}
+	.main-box .page { margin-top:10px;}
+	.main-box .page li{width:130px; height:45px; float:left; margin-right:15px; border-top:2px solid #fff;}
+	.main-box .page li.current{border-top:2px solid #f00;}
+	.main-box .page li img{width:130px; height:45px; float:left;}
+	
+	.good-art{ width:235px;}
+	.good-art h3{ line-height:40px; font-size:14px; color:#EE2266; border-bottom:1px dotted #ccc;}
+	.good-art li{ height:40px; border-bottom:1px dotted #ccc; line-height:40px; vertical-align:middle;}
+	.good-art li img{ vertical-align:middle; margin-right:10px;}
+	
+	.ads{ margin-top:10px;}
+	
+	.main-cat{ margin-top:10px; background:#fff; padding:5px 10px;}
+	.main-cat .top{ height:40px; border-bottom:1px solid #ccc;}
+	.main-cat .top .title{ font-size:22px; font-weight:bold; color:#333; text-indent:1em; line-height:40px;}
+	.main-cat .top .title .tdesc{margin-left:10px; font-size:12px;color:#999; font-weight:normal;}
+	.main-cat .top .sub-ul{line-height:40px;}
+	.main-cat .top .sub-ul li{ float:left; margin-right:10px; padding:0 10px;}
+	.main-cat .top .sub-ul li a{ color:#666;}
+	.main-cat .top .sub-ul li a.more{color:#f60;}
+	.main-cat .top .sub-ul li a:hover{  text-decoration:underline;}
+	.main-cat .con{padding:10px 0 0;}
+	.main-cat .con .bimg{ position:relative;}
+	.main-cat .con .bimg:hover{ box-shadow:0 0 2px #ccc;}
+	.main-cat .con .btitle{position:absolute; padding:10px; bottom:0px; left:0px; }
+	.main-cat .con .btitle a{font-size:16px; font-weight:bold; color:#333; text-decoration:none;}
+	.main-cat .catcenter{margin-left:15px;}
+	.main-cat .catcenter .simg li{ float:left; display:inline; margin-right:10px; width:132px; position:relative; height:110px; overflow:hidden;}
+	.main-cat .catcenter .simg li img{width:132px; height:110px;}
+	.main-cat .catcenter .simg li .smask{opacity:0.5; background:#666;position:absolute; bottom:0px; left:0px; width:100%; height:24px; }
+	.main-cat .catcenter .simg li .stitle{ position:absolute; bottom:0px; left:0px; width:100%; height:24px; line-height:24px; text-indent:1em;}
+	.main-cat .catcenter .simg li .stitle a{font-size:12px;color:#fff; text-decoration:none;}
+	.main-cat .catcenter .sarticle{padding:5px 0;}
+	.main-cat .catcenter .sarticle dt{border-bottom:1px dashed #ccc; line-height:36px; heihgt:36px;  }
+	.main-cat .catcenter .sarticle dt a{color:#f60; font-size:16px; font-weight:bold;}
+	.main-cat .catcenter .sarticle dd{border-bottom:1px dashed #ccc; line-height:30px; heihgt:30px;}
+	.main-cat .catcenter .sarticle dd a{color:#333; font-size:12px; }
+	.cathelp{ width:200px; }
+	.cathelp dt{ font-size:14px; color:#333; line-height:30px; color:#f60;}
+	.cathelp dd{ padding:2px 15px; float:left; border-radius:10px; border:1px solid #ccc; margin:5px 5px 5px 0;}
+	
+	.footer{ margin-top:10px;  background:-moz-linear-gradient(#fff, #dedede) no-repeat; color:#666; padding:15px 0; text-align:center;  }
+	.foot-ul{ display:inline-block; line-height:20px;}
+	.foot-ul li{ text-align:center; float:left; padding:0 15px;}
+	.foot-ul li a{color:#666;}
+	.foot-ul li a:hover{text-decoration:underline;}
+	</style>
+</head>
+<body>
+	<div class="topbar">
+		<div class="grid990">
+			<ul class="fn-left"><li><a href="#" class="mobile">下载手机客户端</a></li></ul>
+			<ul class="fn-right">
+				<li><a href="#" class="weibo">微博</a></li>
+				<li><a href="#" class="weixin">微信</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="header">
+		<div class="grid990">
+			<h1 class="logo fn-left"><a href="#">。。。</a></h1>
+			<div class="searchform fn-left"><input type="text" class="sval fn-left" /><a href="#" class="sbtn fn-left"></a></div>
+		</div>
+	</div>
+	
+	<div class="nav">
+		<ul class="main-ul grid990">
+			<li class="cur"><a href="#">首 页</a></li>
+			<li><a href="#">资 讯</a></li>
+			<li><a href="#">应 用</a></li>
+			<li><a href="#">壁 纸</a></li>
+			<li><a href="#">周 边</a></li>
+		</ul>
+	</div>
+	<div class="snav">
+		<div class=" grid990">
+			<dl>
+				<dt>资 讯</dt>
+				<dd>业界</dd>
+				<dd>机型</dd>
+				<dd>推荐</dd>
+				<dd>评测</dd>
+			</dl>
+			<dl>
+				<dt>应 用</dt>
+				<dd>iOS</dd>
+				<dd>Android</dd>
+				<dd>游戏</dd>
+				<dd>工具</dd>
+			</dl>
+			<dl>
+				<dt>壁 纸</dt>
+				<dd>美女</dd>
+				<dd>酷车</dd>
+				<dd>风景</dd>
+				<dd>潮流</dd>
+			</dl>
+			<dl>
+				<dt>周 边</dt>
+				<dd>手机</dd>
+				<dd>平板</dd>
+				<dd>单反</dd>
+				<dd>配件</dd>
+			</dl>
+		</div>
+	</div>
+	
+	<div class="grid990">
+		<div class="main-box fn-clear">
+			<div class="slider-box fn-left">
+				<div class="slides_container">
+					<div class="item">
+						<img src="./images/v1/v01.jpg" />
+						<div class="title">三星荷兰获胜 法庭判定三星未侵犯苹果圆角设计专利</div>
+					</div>
+					<div class="item fn-hide">
+						<img src="./images/v1/v02.jpg" />
+						<div class="title">分析师称苹果将于年中推出iPhone 5S</div>
+					</div>
+					<div class="item fn-hide">
+						<img src="./images/v1/v03.png" />
+						<div class="title">魅族携手中国联通，举办战略合作发布会</div>
+					</div>
+					<div class="item fn-hide">
+						<img src="./images/slide2.jpg" />
+					</div>
+					<div class="item fn-hide">
+						<img src="./images/slide1.jpg" />
+					</div>
+				</div>
+				<ul class="page fn-clear">
+					<li><a href="javascript:;"><img src="./images/v1/v01.jpg"></a></li>
+					<li><a href="javascript:;"><img src="./images/v1/v02.jpg"></a></li>
+					<li><a href="javascript:;"><img src="./images/v1/v03.png"></a></li>
+					<li><a href="javascript:;"><img src="./images/slide2.jpg"></a></li>
+					<li><a href="javascript:;"><img src="./images/slide3.jpg"></a></li>
+				</ul>
+			</div>
+			<div class="good-art fn-right">
+				<h3>最近热门文章~</h3>
+				<ul >
+					<li><a><img src="./images/ss1.jpg" width="30" height="20"><span>家里换新装，喜气迎接新年<span></a></li>
+					<li><a><img src="./images/ss2.jpg" width="30" height="20"><span>家里换新装，喜气迎接新年<span></a></li>
+					<li><a><img src="./images/ss3.jpg" width="30" height="20"><span>家里换新装，喜气迎接新年<span></a></li>
+					<li><a><img src="./images/ss4.jpg" width="30" height="20"><span>家里换新装，喜气迎接新年<span></a></li>
+					<li><a><img src="./images/ss1.jpg" width="30" height="20"><span>家里换新装，喜气迎接新年<span></a></li>
+					<li><a><img src="./images/ss2.jpg" width="30" height="20"><span>家里换新装，喜气迎接新年<span></a></li>
+					<li><a><img src="./images/ss2.jpg" width="30" height="20"><span>家里换新装，喜气迎接新年<span></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div class="ads grid990" >
+		<a><img src="./images/ads.jpg" alt="" width="990" /></a>
+	</div>
+	
+	<div class="grid990 ">
+		<div class="main-cat ">
+			<div class="top fn-clear">
+				<h3 class="title fn-left">iPhone应用推荐<span class="tdesc"></span></h3>
+				<ul class="sub-ul fn-right">
+					<li><a href="#">游戏</a></li>
+					<li><a href="#">社交</a></li>
+					<li><a href="#">新闻</a></li>
+					<li><a href="#">工具</a></li>
+					<li><a href="#">效率</a></li>
+					<li><a href="#">音乐</a></li>
+					<li><a href="#" class="more">更多&gt;&gt;</a></li>
+				</ul>
+			</div>
+			<div class="con fn-clear">
+				<div class="bimg fn-left">
+					<a href="#"><img src="./images/demo2.jpg" width="320px" height="380px;" /></a>
+					<p class="btitle"><a href="#">烛台</a></p>
+				</div>
+				<div class="catcenter fn-left">
+					<ul class="simg fn-clear">
+						<li>
+							<a href="#"><img src="./images/demo3.jpg" /></a>
+							<p class="smask"></p>
+							<p class="stitle"><a href="#">雪地靴</a></p>
+						</li>
+						<li>
+							<a href="#"><img src="./images/demo4.jpg" /></a>
+							<p class="smask"></p>
+							<p class="stitle"><a href="#">包包</a></p>
+						</li>
+						<li>
+							<a href="#"><img src="./images/demo5.jpg" /></a>
+							<p class="smask"></p>
+							<p class="stitle"><a href="#">手套</a></p>
+						</li>
+					</ul>
+					<dl class="sarticle">
+						<dt><a href="#" title="邻家女孩女装2013年企业宣传片即">邻家女孩女装2013年企业宣传片即...</a></dt>
+						<dd><a href="#" title="MGS曼古银：铃声传情 红透圣诞">· MGS曼古银：铃声传情 红透圣诞GS曼古银：铃声传情 红透圣诞...</a></dd>
+						<dd><a href="#" title="MGS曼古银：铃声传情 红透圣诞">· MGS曼古银：铃声传情 红透圣诞...</a></dd>
+						<dd><a href="#" title="MGS曼古银：铃声传情 红透圣诞">· MGS曼古银：铃声传情 红透圣诞GS曼古银：铃声传情 红透圣诞...</a></dd>
+						<dd><a href="#" title="MGS曼古银：铃声传情 红透圣诞">· MGS曼古银：铃声传情 红透圣诞...</a></dd>
+						<dd><a href="#" title="MGS曼古银：铃声传情 红透圣诞">· MGS曼古银：铃声传情 红透圣诞GS曼古银：铃声传情 红透圣诞...</a></dd>
+						<dd><a href="#" title="MGS曼古银：铃声传情 红透圣诞">· MGS曼古银：铃声传情 红透圣诞...</a></dd>
+						<dd><a href="#" title="MGS曼古银：铃声传情 红透圣诞">· MGS曼古银：铃声传情 红透圣诞红透圣诞...</a></dd>
+					</dl>
+				</div>
+				<div class="cathelp fn-right">
+					<dl class="fn-clear">
+						<dt>热门标签</dt>
+						<dd>帽子</dd>
+						<dd>羊毛衫</dd>
+						<dd>帽子</dd>
+						<dd>圣诞</dd>
+						<dd>帽子</dd>
+						<dd>雪地鞭</dd>
+						<dd>帽子</dd>
+						<dd>切糕</dd>
+						<dd>帽子</dd>
+						<dd>MGS曼古银</dd>
+						<dd>帽子</dd>
+						<dd>流行歌典</dd>
+						<dd>iphone5</dd>
+					</dl>
+					<dl>
+						<dt>时尚风向标</dt>
+						
+						
+					</dl>
+				</div>
+			</div>
+		</div>
+		
+		<div class="main-cat ">
+			<div class="top fn-clear">
+				<h3 class="title fn-left">美容<span class="tdesc">美丽人生，创造你我</span></h3>
+				<ul class="sub-ul fn-right">
+					<li><a href="#">洗发水</a></li>
+					<li><a href="#">发膏</a></li>
+					<li><a href="#">珠宝腕表</a></li>
+					<li><a href="#">珠宝腕表</a></li>
+					<li><a href="#" class="more">更多&gt;&gt;</a></li>
+				</ul>
+			</div>
+			<div class="con fn-clear">
+				<div class="bimg fn-left">
+					<a href="#"><img src="./images/demo6.jpg" width="320px" height="380px;" /></a>
+					<p class="btitle"><a href="#">烛台</a></p>
+				</div>
+				<div class="catcenter fn-left">
+					<ul class="simg fn-clear">
+						<li>
+							<a href="#"><img src="./images/demo7.jpg" /></a>
+							<p class="smask"></p>
+							<p class="stitle"><a href="#">雪地靴</a></p>
+						</li>
+						<li>
+							<a href="#"><img src="./images/demo8.jpg" /></a>
+							<p class="smask"></p>
+							<p class="stitle"><a href="#">包包</a></p>
+						</li>
+						<li>
+							<a href="#"><img src="./images/demo9.jpg" /></a>
+							<p class="smask"></p>
+							<p class="stitle"><a href="#">手套</a></p>
+						</li>
+					</ul>
+					<dl class="sarticle">
+						<dt><a href="#" title="邻家女孩女装2013年企业宣传片即">邻家女孩女装2013年企业宣传片即...</a></dt>
+						<dd><a href="#" title="MGS曼古银：铃声传情 红透圣诞">· MGS曼古银：铃声传情 红透圣诞GS曼古银：铃声传情 红透圣诞...</a></dd>
+						<dd><a href="#" title="MGS曼古银：铃声传情 红透圣诞">· MGS曼古银：铃声传情 红透圣诞...</a></dd>
+						<dd><a href="#" title="MGS曼古银：铃声传情 红透圣诞">· MGS曼古银：铃声传情 红透圣诞GS曼古银：铃声传情 红透圣诞...</a></dd>
+						<dd><a href="#" title="MGS曼古银：铃声传情 红透圣诞">· MGS曼古银：铃声传情 红透圣诞...</a></dd>
+						<dd><a href="#" title="MGS曼古银：铃声传情 红透圣诞">· MGS曼古银：铃声传情 红透圣诞GS曼古银：铃声传情 红透圣诞...</a></dd>
+						<dd><a href="#" title="MGS曼古银：铃声传情 红透圣诞">· MGS曼古银：铃声传情 红透圣诞...</a></dd>
+						<dd><a href="#" title="MGS曼古银：铃声传情 红透圣诞">· MGS曼古银：铃声传情 红透圣诞红透圣诞...</a></dd>
+					</dl>
+				</div>
+				<div class="cathelp fn-right">
+					<dl class="fn-clear">
+						<dt>热门标签</dt>
+						<dd>帽子</dd>
+						<dd>羊毛衫</dd>
+						<dd>帽子</dd>
+						<dd>圣诞</dd>
+						<dd>帽子</dd>
+						<dd>雪地鞭</dd>
+						<dd>帽子</dd>
+						<dd>切糕</dd>
+						<dd>帽子</dd>
+						<dd>MGS曼古银</dd>
+						<dd>帽子</dd>
+						<dd>流行歌典</dd>
+						<dd>iphone5</dd>
+					</dl>
+					<dl>
+						<dt>时尚风向标</dt>
+						
+						
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="footer">
+		<ul class="foot-ul">
+			<li><a href="#">关于享悠悠</a></li>
+			<li><a href="#">网站地图</a></li>
+			<li><a href="#">合作伙伴</a></li>
+			<li><a href="#">法律声明</a></li>
+		</ul>
+		<div><span>Copyright © 2012 xinagyoyo.com, All rights reserved享悠悠 版权所有</span></div>
+	</div>
+	
+	<script src="./js/jquery.js"></script>
+	<script src="./js/slides.min.jquery.js"></script>
+	<script>
+	$(function(){
+		$(".slider-box").slides({
+			generatePagination: false,
+			paginationClass: 'page'
+		});
+	});
+	</script>
+</body>
+</html>
+    
