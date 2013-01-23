@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>悠哉前端开发</title>
+    <link href="/css/base.css" rel="stylesheet" type="text/css" />
+	<link href="/css/global.css" rel="stylesheet" type="text/css" />
+    <link href="/css/admin.css" rel="stylesheet" type="text/css" />
+    <!–[if lt IE9]> 
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]–>
+</head>
+<body>
+	<%- partial('module/nav',{currNav:5}) %>
+	
+	<div class="grid fn-clear admin-con">
+		
+		<aside class="fn-left">
+			<%- partial('module/adminnav',{adminNav:2}) %>
+		</aside>
+		
+		<div class="fn-right admin-main">
+			<form method="post" action="/admin/widget/apiop">
+				<div class="opform">
+					<input type="hidden" name="id" value="<%= widget.id?widget.id:"" %>"   />
+					<dl class="fn-clear">
+						<dt>组件名称：</dt>
+						<dd><%= widget.name %></dd>
+					</dl>
+					<dl class="fn-clear">
+						<dt>组件简价：</dt>
+						<dd><%= widget.desc %></dd>
+					</dl>
+					<dl class="fn-clear">
+						<dt>组件api：</dt>
+						<dd><textarea class="txt txtarea" name="apicon" data-val="" ><%- common.replaceAll(widget.apicon,"&","&amp;") %></textarea></dd>
+					</dl>
+					<dl class="fn-clear">
+						<dt></dt>
+						<dd><input type="submit" class="btn" value="保存" /></dd>
+					</dl>
+				</div>
+			</form>
+			
+		</div>
+		
+		
+	</div>
+	<script src="http://r.uzaicdn.com/static/base/jquery/jquery1.8.js" type="text/javascript"></script>
+	<script type="text/javascript" src="/js/kindeditor/kindeditor-all-min.js"></script>
+	<script type="text/javascript" src="/js/kindeditor/plugins/code/prettify.js"></script>
+	<link href="/js/kindeditor/plugins/code/prettify.css" rel="stylesheet" type="text/css" />
+	
+	<script>
+		$(function(){
+			var editor;
+			KindEditor.ready(function(K) {
+				editor = K.create('.txtarea', {
+					allowFileManager : false,
+					uploadJson : '/admin/upload',
+					filterMode:true
+				});
+				prettyPrint();
+			});
+		});
+	</script>
+</body>
+</html>

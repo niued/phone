@@ -11,9 +11,11 @@ mongoose.connect(config.db, function (err) {
 // models
 require('./article');
 require('./kind');
+require('./iosapp');
 require('./tag');
 require('./article_tag');
 exports.Article = mongoose.model('Article');
 exports.Kind = mongoose.model('Kind');
+exports.IosApp = mongoose.model('IosApp');
 exports.Tag = mongoose.model('Tag');
 exports.ArticleTag = mongoose.model('ArticleTag');
